@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>com.mycompany.mywebapp.server.GreetingServiceImpl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>jsonStockData</servlet-name>
+    <servlet-class>com.mycompany.mywebapp.server.JsonStockDataImpl</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>jsonStockData2</servlet-name>
+    <servlet-class>com.mycompany.mywebapp.server.JsonStockDataImpltxt</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>jsonStockDatachat</servlet-name>
+    <servlet-class>com.mycompany.mywebapp.server.JsonStockDatachatImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/mywebapp2/greet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>jsonStockData</servlet-name>
+    <url-pattern>/user/login</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>jsonStockData2</servlet-name>
+    <url-pattern>/stockwatcher/stockPrices2</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>jsonStockDatachat</servlet-name>
+    <url-pattern>/stockwatcher/stockPriceschat</url-pattern>
+  </servlet-mapping>
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+  </welcome-file-list>
+<filter>
+      <filter-name>filter</filter-name>
+      <filter-class>com.mycompany.mywebapp.server.MyCharsetFilter</filter-class>
+      
+  </filter>
+  <filter-mapping>
+      <filter-name>filter</filter-name>
+      <!-- * 代表截获所有的请求  或指定请求/test.do  /xxx.do -->
+      <url-pattern>/index.html</url-pattern>
+  </filter-mapping>
+</web-app>
